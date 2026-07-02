@@ -5233,8 +5233,7 @@ dependencies = [
 [[package]]
 name = "tera"
 version = "2.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "38ea62bd58771b570262e11ffa274fa9eda9986bd886e6e3a1f7f42afef8024c"
+source = "git+https://github.com/Stebe25/tera.git?branch=component-qol#2f305384847090a52ef9dedc27a46945f949cea2"
 dependencies = [
  "ahash 0.8.12",
  "globset",
@@ -5247,8 +5246,7 @@ dependencies = [
 [[package]]
 name = "tera-contrib"
 version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a3792553c620406661d510095e5885bfb77b2296db30369bcc8308329a6fe78c"
+source = "git+https://github.com/Stebe25/tera.git?branch=component-qol#2f305384847090a52ef9dedc27a46945f949cea2"
 dependencies = [
  "base64",
  "formatx",

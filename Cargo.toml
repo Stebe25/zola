@@ -109,7 +109,10 @@ serde_yaml = "0.9"
 sha2 = "0.11"
 slug = "0.1"
 svg_metadata = "0.6"
-tera = {version = "2.0.0", features = ["fast", "glob_fs"] }
+#tera = {version = "2.0.0", features = ["fast", "glob_fs"] }
+#tera-contrib = {version = "0.2.0", features = ["base64", "date", "urlencode", "json", "filesize_format", "format", "slug", "rand", "regex"] }
+tera = { git = "https://github.com/Stebe25/tera.git", branch = "component-qol", features = ["fast", "glob_fs"] }
+tera-contrib = { git = "https://github.com/Stebe25/tera.git", branch = "component-qol", features = ["base64", "date", "urlencode", "json", "filesize_format", "format", "slug", "rand", "regex"] }
 time = "0.3"
 toml = "0.9"
 unic-langid = "0.9"
