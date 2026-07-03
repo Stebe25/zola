@@ -31,6 +31,7 @@ content = { workspace = true }
 config = { workspace = true }
 imageproc = { workspace = true }
 render = { workspace = true }
+walkdir = { workspace = true }
 
 [dev-dependencies]
 mockito = "1.6"

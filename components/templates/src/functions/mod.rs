@@ -13,3 +13,4 @@ pub use i18n::{TextDirection, Trans};
 pub use images::{GetImageMetadata, ResizeImage};
 pub use load_data::LoadData;
 pub use taxonomy::{GetTaxonomy, GetTaxonomyTerm, GetTaxonomyUrl};
+pub use load_data::{load_toml, load_json};

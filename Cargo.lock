@@ -5217,6 +5217,7 @@ dependencies = [
  "unic-langid",
  "url",
  "utils",
+ "walkdir",
 ]
 
 [[package]]

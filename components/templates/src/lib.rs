@@ -160,5 +160,46 @@ pub fn load_tera(path: &Path, config: &Config) -> Result<Tera> {
     tera.add_raw_templates(templates)?;
     tera.global_context().insert("zola_version", env!("CARGO_PKG_VERSION"));
 
+    // Load data into global_context
+    let data_path = path.join("data");    
+    let data_map = load_data(&data_path)?;
+    tera.global_context().insert_value("data", data_map);
+    
     Ok(tera)
 }
+
+
+use std::collections::BTreeMap;
+use walkdir::WalkDir;
+use tera::{Error, TeraResult, Value};
+use crate::functions::{load_toml, load_json};
+
+fn load_data(path: &Path) -> TeraResult<Value> {
+    let mut map: BTreeMap<String, Value> = BTreeMap::new();
+    
+    for entry in WalkDir::new(path).follow_links(true).min_depth(1).max_depth(1).into_iter().filter_map(|e| e.ok()) {
+        let entry_meta = entry.metadata().expect("no permission to access data dir");
+        let entry_path = entry.path();
+        let entry_name = entry_path.file_stem().unwrap().to_str().unwrap().to_string();
+        
+        if entry_meta.is_dir() {
+            map.insert(entry_name, load_data(entry_path)?);
+        } else if entry_meta.is_file() {
+            let content = fs::read_to_string(entry_path).map_err(|e| Error::message(format!("{:?}", e)))?;
+            let content = match entry_path.extension().unwrap().to_str().unwrap() {
+                "toml" => load_toml(content),
+                "json" => load_json(content),
+                _ => Err(Error::message(format!("{:?} is neither a toml nor json file", entry_path))),
+            }?;
+            map.insert(entry_name, content);
+        }  else {
+            return Err(Error::message(format!("{:?} is neither file nor directory", entry_path)))
+        }
+    }
+    Ok(Value::from(map))
+}
+
+        
+
+
+

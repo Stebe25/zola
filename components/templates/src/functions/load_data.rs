@@ -403,7 +403,7 @@ impl Function<TeraResult<Value>> for LoadData {
 }
 
 /// Parse a JSON string and convert it to a Tera Value
-fn load_json(json_data: String) -> TeraResult<Value> {
+pub fn load_json(json_data: String) -> TeraResult<Value> {
     let json_content: serde_json::Value =
         serde_json::from_str(json_data.as_str()).map_err(|e| Error::message(format!("{:?}", e)))?;
     Ok(Value::from_serializable(&json_content))
@@ -417,7 +417,7 @@ fn load_yaml(yaml_data: String) -> TeraResult<Value> {
 }
 
 /// Parse a TOML string and convert it to a Tera Value
-fn load_toml(toml_data: String) -> TeraResult<Value> {
+pub fn load_toml(toml_data: String) -> TeraResult<Value> {
     let toml_content: toml::Value =
         toml::from_str(&toml_data).map_err(|e| Error::message(format!("{:?}", e)))?;
     let toml_value = Value::from_serializable(&toml_content);
