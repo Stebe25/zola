@@ -1,3 +1,9 @@
+Quality of life changes:
+- loads TOML-/JSON-files in the data directory as data into the global context
+- components get access to the global context
+- components automatically get access to lang and config (config will be removed later, maybe lang too)
+
+
 # zola (né Gutenberg) <img src="docs/static/logos/Zola-logo-main-coffee.svg" align="right" alt="zola logo" width="30%"/>
 
 [![Build Status](https://dev.azure.com/getzola/zola/_apis/build/status/getzola.zola?branchName=master)](https://dev.azure.com/getzola/zola/_build/latest?definitionId=1&branchName=master)
