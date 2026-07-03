@@ -96,7 +96,8 @@ minify-html = "0.18"
 nom-bibtex = "0.6"
 num-format = "0.4"
 percent-encoding = "2"
-pulldown-cmark = { version = "0.13", default-features = false, features = ["html", "simd"] }
+#pulldown-cmark = { version = "0.13", default-features = false, features = ["html", "simd"] }
+pulldown-cmark = { git = "https://github.com/Stebe25/pulldown-cmark.git", branch = "no-indented-code-blocks", default-features = false, features = ["std", "html", "simd"] }
 pulldown-cmark-escape = { version = "0.11", default-features = false }
 roxmltree_to_serde = "0.6"
 rayon = "1"

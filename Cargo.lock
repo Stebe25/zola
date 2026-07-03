@@ -2853,7 +2853,7 @@ dependencies = [
  "insta",
  "log",
  "pulldown-cmark",
- "pulldown-cmark-escape",
+ "pulldown-cmark-escape 0.11.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "regex",
  "render",
  "templates",
@@ -4110,13 +4110,12 @@ dependencies = [
 
 [[package]]
 name = "pulldown-cmark"
-version = "0.13.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e9f068eba8e7071c5f9511831b44f32c740d5adf574e990f946ddb53db2f314e"
+version = "0.13.1"
+source = "git+https://github.com/Stebe25/pulldown-cmark.git?branch=no-indented-code-blocks#302e20d2bc0d9e3ec52cd4f06e7d34dd0bcf18a4"
 dependencies = [
  "bitflags 2.13.0",
  "memchr",
- "pulldown-cmark-escape",
+ "pulldown-cmark-escape 0.11.0 (git+https://github.com/Stebe25/pulldown-cmark.git?branch=no-indented-code-blocks)",
  "unicase",
 ]
 
@@ -4125,6 +4124,11 @@ name = "pulldown-cmark-escape"
 version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "007d8adb5ddab6f8e3f491ac63566a7d5002cc7ed73901f72057943fa71ae1ae"
+
+[[package]]
+name = "pulldown-cmark-escape"
+version = "0.11.0"
+source = "git+https://github.com/Stebe25/pulldown-cmark.git?branch=no-indented-code-blocks#302e20d2bc0d9e3ec52cd4f06e7d34dd0bcf18a4"
 
 [[package]]
 name = "pxfm"
@@ -5239,7 +5243,7 @@ dependencies = [
  "ahash 0.8.12",
  "globset",
  "itoa",
- "pulldown-cmark-escape",
+ "pulldown-cmark-escape 0.11.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde",
  "walkdir",
 ]
